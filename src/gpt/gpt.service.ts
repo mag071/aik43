@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -24,6 +25,7 @@ import {
   TextToAudioDto,
   TranslateDto,
 } from './dtos';
+import { audioToTextUseCase2 } from './use-cases/audio-to-text.use-case2';
 
 
 @Injectable()
@@ -77,6 +79,15 @@ export class GptService {
     const { prompt } = audioToTextDto;
 
     return await audioToTextUseCase(this.openai, { audioFile, prompt });
+  }
+
+  async audioToText2(
+    audioFile: Express.Multer.File,
+    audioToTextDto: AudioToTextDto,
+  ) {
+    const { prompt } = audioToTextDto;
+
+    return await audioToTextUseCase2(this.openai, { audioFile, prompt });
   }
 
   async imageGeneration( imageGenerationDto: ImageGenerationDto ) {

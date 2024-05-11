@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import OpenAI from 'openai';
 
 
@@ -9,8 +10,8 @@ interface Options {
 
 
 export const createRunUseCase = async( openai: OpenAI, options: Options ) => {
-
-  const { threadId, assistantId = 'asst_VVefvFU2YvJkLGhP4Yo521EN' } = options;
+//asst_qr92NDNG3egmcNUIaoB6XdAv   roimar
+  const { threadId, assistantId = 'asst_UposvPBcJ4MTOCrsInOldp5y' } = options;
 
   const run = await openai.beta.threads.runs.create( threadId, {
     assistant_id: assistantId,
